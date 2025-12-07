@@ -1,0 +1,12 @@
+clickhouse-connect == 0.10.0
+pandas == 2.3.3
+polars
+pyarrow
+duckdb
+psutil
+pygeohash
+tqdm
+gzip-reader
+pycountry
+reverse_geocoder
+psycopg2-binary
