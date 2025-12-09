@@ -1,0 +1,71 @@
+<functions>
+    <function>
+        <type>executable</type>
+        <name>score_pingsink_cpp</name>
+        <return_type>Float64</return_type>
+        <argument><type>UInt64</type><name>pings</name></argument>
+        <argument><type>Float64</type><name>std_geohash_m</name></argument>
+        <argument><type>Float64</type><name>mean_time_diff</name></argument>
+        <argument><type>UInt64</type><name>total_pings</name></argument>
+        <format>RowBinary</format>
+        <command>scoring_tool pingsink</command>
+    </function>
+    <function>
+        <type>executable</type>
+        <name>score_home_cpp</name>
+        <return_type>Float64</return_type>
+        <argument><type>UInt64</type><name>pings</name></argument>
+        <argument><type>UInt64</type><name>unique_days</name></argument>
+        <argument><type>Float64</type><name>night_ratio</name></argument>
+        <argument><type>Float64</type><name>night_days_ratio</name></argument>
+        <argument><type>Float64</type><name>late_evening_days_ratio</name></argument>
+        <argument><type>Float64</type><name>early_morning_days_ratio</name></argument>
+        <argument><type>Float64</type><name>entropy_hour_norm</name></argument>
+        <argument><type>Float64</type><name>active_day_ratio</name></argument>
+        <argument><type>Float64</type><name>monthly_stability</name></argument>
+        <argument><type>UInt64</type><name>active_days_last_30d</name></argument>
+        <format>RowBinary</format>
+        <command>scoring_tool home</command>
+    </function>
+    <function>
+        <type>executable</type>
+        <name>score_work_cpp</name>
+        <return_type>Float64</return_type>
+        <argument><type>UInt64</type><name>pings</name></argument>
+        <argument><type>UInt64</type><name>unique_days</name></argument>
+        <argument><type>Float64</type><name>weekday_day_ratio</name></argument>
+        <argument><type>Float64</type><name>weekday_work_days_ratio</name></argument>
+        <argument><type>Float64</type><name>midday_weekday_ratio</name></argument>
+        <argument><type>Float64</type><name>entropy_hour_norm</name></argument>
+        <argument><type>Float64</type><name>active_day_ratio</name></argument>
+        <argument><type>Float64</type><name>monthly_stability</name></argument>
+        <argument><type>UInt64</type><name>active_days_last_30d</name></argument>
+        <format>RowBinary</format>
+        <command>scoring_tool work</command>
+    </function>
+    <function>
+        <type>executable</type>
+        <name>score_leisure_cpp</name>
+        <return_type>Float64</return_type>
+        <argument><type>UInt64</type><name>pings</name></argument>
+        <argument><type>UInt64</type><name>unique_days</name></argument>
+        <argument><type>Float64</type><name>weekend_ratio</name></argument>
+        <argument><type>Float64</type><name>evening_ratio</name></argument>
+        <argument><type>Float64</type><name>entropy_hour_norm</name></argument>
+        <argument><type>Float64</type><name>monthly_stability</name></argument>
+        <argument><type>UInt64</type><name>active_days_last_30d</name></argument>
+        <argument><type>Float64</type><name>home_score</name></argument>
+        <argument><type>Float64</type><name>work_score</name></argument>
+        <format>RowBinary</format>
+        <command>scoring_tool leisure</command>
+    </function>
+    <function>
+        <type>executable</type>
+        <name>calculate_spatial_stats_cpp</name>
+        <return_type>Tuple(Float64, Float64, Float64)</return_type>
+        <argument><type>Array(Float64)</type><name>lats</name></argument>
+        <argument><type>Array(Float64)</type><name>lons</name></argument>
+        <format>RowBinary</format>
+        <command>scoring_tool spatial</command>
+    </function>
+</functions>

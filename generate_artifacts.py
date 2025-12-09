@@ -25,6 +25,8 @@ class CustomJSONEncoder(json.JSONEncoder):
             return list(obj)
         return super().default(obj)
 
+import pygeohash as pgh
+
 def load_data(filepath):
     data_by_maid = defaultdict(list)
     with open(filepath, 'r') as f:
@@ -32,6 +34,14 @@ def load_data(filepath):
         reader = csv.DictReader(filtered_lines)
         for row in reader:
             maid = row['maid']
+            if 'geohash' not in row and 'latitude' in row and 'longitude' in row:
+                try:
+                    lat = float(row['latitude'])
+                    lon = float(row['longitude'])
+                    row['geohash'] = pgh.encode(lat, lon, precision=7)
+                except (ValueError, TypeError):
+                    continue
+            
             data_by_maid[maid].append(row)
     return data_by_maid
 

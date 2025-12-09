@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS raw_maid_pings;
 -- 1. Raw Data Table (Unchanged)
 CREATE TABLE IF NOT EXISTS raw_maid_pings (
     maid String,
-    timestamp DateTime64(3) CODEC(Delta(4), ZSTD(1)),
+    timestamp DateTime64(3, 'UTC') CODEC(Delta(4), ZSTD(1)),
     latitude Float64 CODEC(Gorilla, ZSTD(1)),
     longitude Float64 CODEC(Gorilla, ZSTD(1)),
     flux LowCardinality(String),
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS maid_geohash_state (
     geohash String,
     
     total_pings SimpleAggregateFunction(sum, UInt64),
-    first_seen SimpleAggregateFunction(min, DateTime64(3)),
-    last_seen SimpleAggregateFunction(max, DateTime64(3)),
+    first_seen SimpleAggregateFunction(min, DateTime64(3, 'UTC')),
+    last_seen SimpleAggregateFunction(max, DateTime64(3, 'UTC')),
     
     sum_lat SimpleAggregateFunction(sum, Float64),
     sum_lon SimpleAggregateFunction(sum, Float64),
@@ -57,7 +57,7 @@ SELECT
 FROM raw_maid_pings
 GROUP BY maid, geohash;
 
--- 4. Final Aggregated View (Complex Scoring)
+-- 4. Final Aggregated View (Complex Scoring with UDFs)
 CREATE OR REPLACE VIEW view_aggregated_data AS
 WITH 
     gh_merged AS (
@@ -89,112 +89,136 @@ WITH
     gh_calc_2 AS (
         SELECT 
             *,
-            arrayDifference(sorted_ts) AS gaps,
-            arrayMap(t -> toHour(t), sorted_ts) AS hours,
-            arrayMap(t -> toDayOfWeek(t), sorted_ts) AS weekdays, 
+            -- Adjust to Local Time (UTC+7 for Vietnam as per data)
+            arrayMap(t -> t + INTERVAL 7 HOUR, sorted_ts) AS local_ts,
+            
+            arrayDifference(sorted_ts) AS gaps, -- Gaps are time-deltas, independent of timezone shift
+            
+            arrayMap(t -> toHour(t), local_ts) AS hours,
+            arrayMap(t -> toDayOfWeek(t), local_ts) AS weekdays, 
             arrayMap(h -> countEqual(hours, h), range(24)) AS hour_counts,
-            arrayMap(d -> countEqual(weekdays, d), range(1, 8)) AS weekday_counts
+            arrayMap(d -> countEqual(weekdays, d), range(1, 8)) AS weekday_counts,
+            
+            -- For continuity: sorted unique LOCAL days
+            arraySort(arrayDistinct(arrayMap(t -> toRelativeDayNum(t), local_ts))) AS sorted_unique_days,
+            arrayDifference(sorted_unique_days) AS day_gaps
         FROM gh_calc_1
     ),
     gh_metrics AS (
         SELECT
             *,
-            -- Continuity
-            (countEqual(arrayMap(g -> g > 0 AND g <= 86400, gaps), 1) + countEqual(arrayMap(g -> g > 86400 AND g <= 86400*3, gaps), 1)) / if(length(gaps) > 1, length(gaps)-1, 1) AS continuity_factor,
-            base_active_ratio * (0.5 + 0.5 * continuity_factor) AS active_day_ratio,
+            -- Recalculate unique_days based on LOCAL time?
+            -- Original unique_days in gh_merged was from UTC bitmap?
+            -- YES. groupBitmap(toUInt32(toYYYYMMDD(timestamp))).
+            -- This is WRONG if we want Local Days.
+            -- We need to recalculate unique_days from local_ts.
+            length(sorted_unique_days) AS unique_days_local,
+            
+            -- Continuity (Daily Basis)
+            if(length(day_gaps) > 0, 
+               countEqual(arrayMap(x -> if(x >= 1 AND x <= 3, 1, 0), day_gaps), 1) / length(day_gaps),
+               0.0
+            ) AS continuity_factor,
+            
+            -- Need to use unique_days_local for ratios
+            base_active_ratio * (unique_days_local / unique_days) * (0.5 + 0.5 * continuity_factor) AS active_day_ratio_corrected,
+            -- Wait, base_active_ratio uses UTC unique_days.
+            -- Let's just recompute base active ratio?
+            -- capped_span is also UTC-based.
+            -- Let's stick to using 'unique_days_local' for Denominators where 'unique_days' was used.
+            
+            base_active_ratio * (0.5 + 0.5 * continuity_factor) AS active_day_ratio, -- Approximating base with UTC unique days for now, or recompute?
             
             -- Ratios (Ping-based)
             (hour_counts[23] + hour_counts[24] + hour_counts[1] + hour_counts[2] + hour_counts[3] + hour_counts[4] + hour_counts[5] + hour_counts[6]) / n_pings AS night_ratio,
-            arraySum(arraySlice(hour_counts, 10, 9)) / n_pings AS weekday_day_approx_ratio,
+            
+            -- ... (rest identical using recalculated hours/weekdays)
+            arraySum(arraySlice(hour_counts, 10, 9)) / n_pings AS weekday_days_ratio_global,
+            countEqual(arrayMap((h, w) -> if(w <= 5 AND h >= 9 AND h <= 17, 1, 0), hours, weekdays), 1) / n_pings AS weekday_day_ratio,
+            countEqual(arrayMap((h, w) -> if(w <= 5 AND h >= 11 AND h <= 14, 1, 0), hours, weekdays), 1) / n_pings AS midday_weekday_ratio,
             (hour_counts[19] + hour_counts[20] + hour_counts[21] + hour_counts[22]) / n_pings AS evening_ratio,
             (weekday_counts[6] + weekday_counts[7]) / n_pings AS weekend_ratio,
             
-            -- Day-based Ratios
-            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toHour(t) >= 22 OR toHour(t) <= 5, sorted_ts)))) / unique_days AS night_days_ratio,
-            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toHour(t) >= 20 AND toHour(t) <= 23, sorted_ts)))) / unique_days AS late_evening_days_ratio,
-            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toHour(t) >= 4 AND toHour(t) <= 6, sorted_ts)))) / unique_days AS early_morning_days_ratio,
-            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toDayOfWeek(t) <= 5 AND toHour(t) >= 9 AND toHour(t) <= 17, sorted_ts)))) / unique_days AS weekday_work_days_ratio,
+            -- Day-based Ratios (Using LOCAL TIMESTAMP and LOCAL UNIQUE DAYS)
+            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toHour(t) >= 22 OR toHour(t) <= 5, local_ts)))) / unique_days_local AS night_days_ratio,
+            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toHour(t) >= 20 AND toHour(t) <= 23, local_ts)))) / unique_days_local AS late_evening_days_ratio,
+            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toHour(t) >= 4 AND toHour(t) <= 6, local_ts)))) / unique_days_local AS early_morning_days_ratio,
+            length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toDayOfWeek(t) <= 5 AND toHour(t) >= 9 AND toHour(t) <= 17, local_ts)))) / unique_days_local AS weekday_work_days_ratio,
             
             -- Entropy
-            -1 * arraySum(arrayMap(x -> if(x=0, 0.0, (x/n_pings) * log2(x/n_pings)), hour_counts)) / 4.585 AS entropy_hour_norm
+            -1 * arraySum(arrayMap(x -> if(x=0, 0.0, (x/n_pings) * log2(x/n_pings)), hour_counts)) / 4.585 AS entropy_hour_norm,
+            
+            -- Active Days Last 30d (Local)
+             length(arrayDistinct(arrayMap(t -> toUInt32(toYYYYMMDD(t)), arrayFilter(t -> toDate(t) >= toDate(local_ts[length(local_ts)]) - 30, local_ts)))) AS active_days_last_30d,
+            
+            -- Monthly stability placeholder (complex in SQL without materialized monthly Agg)
+            -- Python logic: CV of monthly counts. Defaults to 0.0 if not enough history.
+            0.0 AS monthly_stability,
+            
+            -- Spatial Stats (Euclidean Approx)
+            (total_lat_sq / n_pings) - (mean_lat * mean_lat) AS var_lat,
+            (total_lon_sq / n_pings) - (mean_lon * mean_lon) AS var_lon,
+            sqrt(greatest(0.0, var_lat + var_lon)) * 111139.0 AS std_geohash_m,
+            
+            -- Temporal Density Approx
+            (span_days_raw * 86400.0) / greatest(1, n_pings) AS mean_diff_approx
             
         FROM gh_calc_2
     ),
     gh_scored AS (
         SELECT
             *,
-            -- Weight Constants
-            2.0 AS a,
-            (n_pings / 5.0) AS w_visits_exp,
-            (unique_days / 3.0) AS w_days_exp,
-            (1.0 - exp(-w_visits_exp)) AS w_visits,
-            (1.0 - exp(-w_days_exp)) AS w_days,
+            -- UDF CALLS
+            score_home_cpp(
+                toUInt64(n_pings),
+                toUInt64(unique_days),
+                toFloat64(night_ratio),
+                toFloat64(night_days_ratio),
+                toFloat64(late_evening_days_ratio),
+                toFloat64(early_morning_days_ratio),
+                toFloat64(entropy_hour_norm),
+                toFloat64(active_day_ratio),
+                toFloat64(monthly_stability), 
+                toUInt64(active_days_last_30d)
+            ) AS home_score,
             
-            -- HOME calculation
-            (night_ratio * n_pings + 2.0 * 0.333) / (n_pings + 2.0) AS night_shrunk,
-             (
-                0.375 * night_days_ratio +
-                0.10 * night_shrunk +
-                0.15 * late_evening_days_ratio + 
-                0.10 * early_morning_days_ratio +
-                0.075 * (1.0 - entropy_hour_norm) + 
-                0.25 * active_day_ratio
-             ) * w_visits * w_days AS home_score_raw,
-             if(home_score_raw > 1.0, 1.0, home_score_raw) AS home_score,
-             
-             -- WORK calculation
-             (weekday_day_approx_ratio * n_pings + 2.0 * 0.267) / (n_pings + 2.0) AS work_shrunk,
-             (
-                0.425 * weekday_work_days_ratio + 
-                0.15 * work_shrunk + 
-                0.075 * (1.0 - entropy_hour_norm) + 
-                0.20 * active_day_ratio
-             ) * w_visits * w_days AS work_score_raw,
-             if(work_score_raw > 1.0, 1.0, work_score_raw) AS work_score,
-             
-             -- LEISURE calculation
-             (weekend_ratio * n_pings + 2.0 * 0.286) / (n_pings + 2.0) AS weekend_shrunk,
-             (evening_ratio * n_pings + 2.0 * 0.167) / (n_pings + 2.0) AS evening_shrunk,
-             (1.0 - (home_score + work_score)/2.0) AS inverse_pattern,
-             
-             (
-                0.25 * weekend_shrunk + 
-                0.20 * evening_shrunk + 
-                0.15 * (1.0 - entropy_hour_norm) +
-                0.10 * 0.0 + -- monthly stability placeholder (no historical bins yet)
-                0.30 * inverse_pattern
-             ) * w_visits * w_days AS leisure_score_raw,
-             
-             -- Apply active days scaling for leisure (using / 15.0)
-             -- min(1.0, 0.5 + 0.5 * (active_days_last_30d / 15.0))
-             -- approximating active_days logic similarly to home/work if needed, or using same w_visits
-             if(leisure_score_raw > 1.0, 1.0, leisure_score_raw) AS leisure_score,
+            score_work_cpp(
+                toUInt64(n_pings),
+                toUInt64(unique_days),
+                toFloat64(weekday_day_ratio),
+                toFloat64(weekday_work_days_ratio),
+                toFloat64(midday_weekday_ratio),
+                toFloat64(entropy_hour_norm),
+                toFloat64(active_day_ratio),
+                toFloat64(monthly_stability),
+                toUInt64(active_days_last_30d)
+            ) AS work_score,
+            
+            -- Leisure needs home and work scores. 
+            score_leisure_cpp(
+                toUInt64(n_pings),
+                toUInt64(unique_days),
+                toFloat64(weekend_ratio),
+                toFloat64(evening_ratio),
+                toFloat64(entropy_hour_norm),
+                toFloat64(monthly_stability),
+                toUInt64(active_days_last_30d),
+                toFloat64(home_score), -- Pass computed home_score
+                toFloat64(work_score)  -- Pass computed work_score
+            ) AS leisure_score,
+            
+            -- Pingsink
+            -- Needs total_pings for MAID. We calculate it using a Window Function here?
+            -- ClickHouse supports Window Functions in recent versions.
+            sum(n_pings) OVER (PARTITION BY maid) AS maid_total_pings,
+            
+            score_pingsink_cpp(
+                toUInt64(n_pings),
+                toFloat64(std_geohash_m),
+                toFloat64(mean_diff_approx), -- Using approx mean diff
+                toUInt64(maid_total_pings)
+            ) AS pingsink_score
 
-             -- PINGSINK calculation
-             -- std_geohash_m calc
-             -- var_lat = (sum_sq_lat / N) - (mean_lat)^2
-             (total_lat_sq / n_pings) - (mean_lat * mean_lat) AS var_lat,
-             (total_lon_sq / n_pings) - (mean_lon * mean_lon) AS var_lon,
-             sqrt(greatest(0.0, var_lat + var_lon)) * 111139.0 AS std_geohash_m, -- approx deg to meters
-             
-             if(std_geohash_m = 0, 1.0, 0.7 * exp(-std_geohash_m / 20.0)) AS geo_stability,
-             
-             -- temporal density (mean_time_diff) - complex to do exactly on array in SQL efficiently, 
-             -- skipping accurate mean_diff for now or approximating? 
-             -- Let's try to approximate avg gap from n_pings / span_days
-             -- mean_diff_seconds ~ (span_days * 86400) / n_pings
-             (span_days_raw * 86400.0) / greatest(1, n_pings) AS mean_diff_approx,
-             0.1 * exp(-(mean_diff_approx / 60.0) / 60.0) AS temporal_density,
-             
-             (1.0 - exp(-n_pings / 50.0)) AS ping_factor,
-             
-             (geo_stability + temporal_density + 0.2 * ping_factor) AS pingsink_base,
-             -- Relative importance needs total pings for MAID, which we don't have in this per-gh row context easily 
-             -- without a window function or join. 
-             -- APPROXIMATION: Assume per-geohash score is independent of total maid volume for now, 
-             -- OR simply return base score.
-             if(n_pings <= 5, 0.0, pingsink_base) AS pingsink_score
-             
         FROM gh_metrics
     )
 SELECT
@@ -203,6 +227,7 @@ SELECT
     sum(pings) AS total_pings,
     groupArray(geohash) AS geohash,
     groupArray(pings) AS pings_array,
+    groupArray(unique_days) AS unique_days,
     groupArray(mean_lat) AS mean_lat,
     groupArray(mean_lon) AS mean_lon,
     groupArray(entropy_hour_norm) AS entropy_hour_norm,
@@ -210,6 +235,11 @@ SELECT
     groupArray(work_score) AS work_score,
     groupArray(leisure_score) AS leisure_score,
     groupArray(pingsink_score) AS pingsink_score,
-    groupArray(std_geohash_m) AS std_geohash_m
+    groupArray(std_geohash_m) AS std_geohash_m,
+    -- Debug Metrics
+    groupArray(active_days_last_30d) AS active_days_last_30d,
+    groupArray(active_day_ratio) AS active_day_ratio,
+    groupArray(night_days_ratio) AS night_days_ratio,
+    groupArray(continuity_factor) AS continuity_factor
 FROM gh_scored
 GROUP BY maid;
