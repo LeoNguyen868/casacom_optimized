@@ -1,8 +1,5 @@
 -- Database cleanup (Comprehensive)
 DROP TABLE IF EXISTS view_aggregated_data;
-DROP TABLE IF EXISTS mv_raw_to_agg;      -- Old MV name
-DROP TABLE IF EXISTS mv_raw_to_state;    -- Conflicting MV from architecture_new.md experiment
-DROP TABLE IF EXISTS maid_state_agg;     -- Old State Table
 DROP TABLE IF EXISTS mv_raw_to_geohash_agg;
 DROP TABLE IF EXISTS maid_geohash_state;
 DROP TABLE IF EXISTS raw_maid_pings;
