@@ -1,0 +1,45 @@
+maid,geohash,timestamp,latitude,longitude,flux
+# Case 1: Pings <= 5 (should be 0.0 pingsink)
+m1,gh_low_pings,2025-01-01T12:00:00+00:00,0.0,0.0,B
+m1,gh_low_pings,2025-01-01T12:01:00+00:00,0.0,0.0,B
+m1,gh_low_pings,2025-01-01T12:02:00+00:00,0.0,0.0,B
+m1,gh_low_pings,2025-01-01T12:03:00+00:00,0.0,0.0,B
+m1,gh_low_pings,2025-01-01T12:04:00+00:00,0.0,0.0,B
+
+# Case 2: Pings = 6 (boundary for pingsink check)
+m2,gh_six_pings,2025-01-01T12:00:00+00:00,10.0,10.0,B
+m2,gh_six_pings,2025-01-01T12:01:00+00:00,10.0,10.0,B
+m2,gh_six_pings,2025-01-01T12:02:00+00:00,10.0,10.0,B
+m2,gh_six_pings,2025-01-01T12:03:00+00:00,10.0,10.0,B
+m2,gh_six_pings,2025-01-01T12:04:00+00:00,10.0,10.0,B
+m2,gh_six_pings,2025-01-01T12:05:00+00:00,10.0,10.0,B
+
+# Case 3: Night boundary (21:59 vs 22:00)
+m3,gh_night_boundary,2025-01-01T21:59:00+00:00,20.0,20.0,B
+m3,gh_night_boundary,2025-01-01T22:00:00+00:00,20.0,20.0,B
+m3,gh_night_boundary,2025-01-01T22:01:00+00:00,20.0,20.0,B
+
+# Case 4: Morning boundary (05:59 vs 06:00)
+m4,gh_morning_boundary,2025-01-01T05:59:00+00:00,30.0,30.0,B
+m4,gh_morning_boundary,2025-01-01T06:00:00+00:00,30.0,30.0,B
+m4,gh_morning_boundary,2025-01-01T06:01:00+00:00,30.0,30.0,B
+
+# Case 5: Single ping (std=0 but pings=1, should not be perfect sink)
+m5,gh_single_ping,2025-01-01T12:00:00+00:00,40.0,40.0,B
+
+# Case 6: Large gap (>30 days)
+m6,gh_large_gap,2025-01-01T12:00:00+00:00,50.0,50.0,B
+m6,gh_large_gap,2025-02-15T12:00:00+00:00,50.0,50.0,B
+
+# Case 7: Continuous days (0d gaps)
+m7,gh_continuous,2025-01-01T12:00:00+00:00,60.0,60.0,B
+m7,gh_continuous,2025-01-02T12:00:00+00:00,60.0,60.0,B
+m7,gh_continuous,2025-01-03T12:00:00+00:00,60.0,60.0,B
+
+# Case 8: Tiny variance (not exactly 0, check stability calc)
+m8,gh_tiny_var,2025-01-01T12:00:00+00:00,70.00000,70.00000,B
+m8,gh_tiny_var,2025-01-01T12:01:00+00:00,70.00001,70.00001,B
+m8,gh_tiny_var,2025-01-01T12:02:00+00:00,70.00002,70.00002,B
+m8,gh_tiny_var,2025-01-01T12:03:00+00:00,70.00001,70.00001,B
+m8,gh_tiny_var,2025-01-01T12:04:00+00:00,70.00000,70.00000,B
+m8,gh_tiny_var,2025-01-01T12:05:00+00:00,70.00001,70.00001,B

@@ -1,0 +1,2384 @@
+{
+  "evg6fqw": {
+    "meta": {
+      "first_seen": "2025-08-01T17:57:07+07:00",
+      "last_seen": "2025-08-02T05:23:12+07:00",
+      "span_days": 2,
+      "mean_coordinate": [
+        32.86314778961241,
+        -6.572244744747877
+      ],
+      "mean_geohash": "evg6fqw1xwg0",
+      "std_geohash_m": 42.67388372286694,
+      "mean_time_diff_seconds": 52.97940797940798
+    },
+    "level_1_primary": {
+      "pings": 778,
+      "unique_days": 2,
+      "active_day_ratio": 0.06666666666666667,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 1,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        23,
+        465,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        149,
+        95,
+        0,
+        0,
+        0,
+        46,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        290,
+        488,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 778
+      },
+      "night_ratio": 0.6863753213367609,
+      "weekday_day_ratio": 0.19151670951156813,
+      "weekend_ratio": 0.6272493573264781,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.12210796915167095,
+      "early_late_overlap_day_ratio": 0.5,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.5,
+      "late_evening_days_ratio": 0.5,
+      "early_morning_days_ratio": 0.5,
+      "entropy_hour_norm": 0.3625627031706153,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 2
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 50,
+      "hourly_minutes": {
+        "17": {
+          "min": 57,
+          "max": 59
+        },
+        "18": {
+          "min": 0,
+          "max": 24
+        },
+        "22": {
+          "min": 23,
+          "max": 24
+        },
+        "4": {
+          "min": 59,
+          "max": 59
+        },
+        "5": {
+          "min": 0,
+          "max": 23
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 778,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqt": {
+    "meta": {
+      "first_seen": "2025-08-01T17:59:36+07:00",
+      "last_seen": "2025-08-02T05:23:25+07:00",
+      "span_days": 2,
+      "mean_coordinate": [
+        32.863043854013085,
+        -6.572644729167223
+      ],
+      "mean_geohash": "evg6fqtcn72u",
+      "std_geohash_m": 8.744207762421288,
+      "mean_time_diff_seconds": 17.414685908319186
+    },
+    "level_1_primary": {
+      "pings": 2357,
+      "unique_days": 2,
+      "active_day_ratio": 0.06666666666666667,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 1,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        941,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        24,
+        1392,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        1416,
+        941,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 2357
+      },
+      "night_ratio": 0.3992363173525668,
+      "weekday_day_ratio": 0.010182435299109036,
+      "weekend_ratio": 0.3992363173525668,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.5905812473483242,
+      "early_late_overlap_day_ratio": 0.0,
+      "night_days_ratio": 0.5,
+      "weekday_work_days_ratio": 0.5,
+      "late_evening_days_ratio": 0.0,
+      "early_morning_days_ratio": 0.5,
+      "entropy_hour_norm": 0.2279117210410624,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 2
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 45,
+      "hourly_minutes": {
+        "17": {
+          "min": 59,
+          "max": 59
+        },
+        "18": {
+          "min": 0,
+          "max": 25
+        },
+        "5": {
+          "min": 3,
+          "max": 23
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 2357,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqk": {
+    "meta": {
+      "first_seen": "2025-08-01T21:03:05+07:00",
+      "last_seen": "2025-08-02T02:32:05+07:00",
+      "span_days": 2,
+      "mean_coordinate": [
+        32.862104242667556,
+        -6.574504841119051
+      ],
+      "mean_geohash": "evg6fqkedujz",
+      "std_geohash_m": 54.00644286419433,
+      "mean_time_diff_seconds": 165.88235294117646
+    },
+    "level_1_primary": {
+      "pings": 120,
+      "unique_days": 2,
+      "active_day_ratio": 0.06666666666666667,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 1,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        119,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 120
+      },
+      "night_ratio": 0.9916666666666667,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.9916666666666667,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.008333333333333333,
+      "early_late_overlap_day_ratio": 0.5,
+      "night_days_ratio": 0.5,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.5,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": 0.015164714429177193,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 2
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 2,
+      "hourly_minutes": {
+        "21": {
+          "min": 3,
+          "max": 3
+        },
+        "2": {
+          "min": 30,
+          "max": 32
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 120,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqx": {
+    "meta": {
+      "first_seen": "2025-08-01T17:55:26+07:00",
+      "last_seen": "2025-08-02T04:59:36+07:00",
+      "span_days": 2,
+      "mean_coordinate": [
+        32.86314192228019,
+        -6.570268291980028
+      ],
+      "mean_geohash": "evg6fqx9ttsv",
+      "std_geohash_m": 34.69645367271181,
+      "mean_time_diff_seconds": 30.48967100229533
+    },
+    "level_1_primary": {
+      "pings": 1308,
+      "unique_days": 2,
+      "active_day_ratio": 0.06666666666666667,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 1,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        371,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        101,
+        0,
+        0,
+        0,
+        229,
+        607,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        937,
+        371,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 1308
+      },
+      "night_ratio": 0.7477064220183486,
+      "weekday_day_ratio": 0.077217125382263,
+      "weekend_ratio": 0.28363914373088683,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.17507645259938837,
+      "early_late_overlap_day_ratio": 0.5,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.5,
+      "late_evening_days_ratio": 0.5,
+      "early_morning_days_ratio": 0.5,
+      "entropy_hour_norm": 0.38278659943672283,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 2
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 22,
+      "hourly_minutes": {
+        "17": {
+          "min": 55,
+          "max": 57
+        },
+        "21": {
+          "min": 13,
+          "max": 17
+        },
+        "22": {
+          "min": 13,
+          "max": 23
+        },
+        "4": {
+          "min": 53,
+          "max": 59
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 1308,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqj": {
+    "meta": {
+      "first_seen": "2025-07-30T23:08:20+07:00",
+      "last_seen": "2025-08-02T02:34:21+07:00",
+      "span_days": 4,
+      "mean_coordinate": [
+        32.86096950061619,
+        -6.573182847350836
+      ],
+      "mean_geohash": "evg6fqjt18xw",
+      "std_geohash_m": 47.092530773019526,
+      "mean_time_diff_seconds": 1402.7348484848485
+    },
+    "level_1_primary": {
+      "pings": 133,
+      "unique_days": 2,
+      "active_day_ratio": 0.06666666666666667,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 1,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        5,
+        0,
+        0,
+        128,
+        0
+      ],
+      "monthly_hist": {
+        "2025-07": 5,
+        "2025-08": 128
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.9624060150375939,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 0.5,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.5,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": 0.05041476354840546,
+      "monthly_stability": 0.51953125,
+      "active_days_last_30d": 2
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 2,
+      "hourly_minutes": {
+        "23": {
+          "min": 8,
+          "max": 8
+        },
+        "2": {
+          "min": 32,
+          "max": 34
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 133,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6frj": {
+    "meta": {
+      "first_seen": "2025-08-01T21:08:50+07:00",
+      "last_seen": "2025-08-01T21:10:14+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.865696558728814,
+        -6.573318634182215
+      ],
+      "mean_geohash": "evg6frj2w9fk",
+      "std_geohash_m": 33.304419808320006,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 85,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        85,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        85,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 85
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 2,
+      "hourly_minutes": {
+        "21": {
+          "min": 8,
+          "max": 10
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 85,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fq7": {
+    "meta": {
+      "first_seen": "2025-07-30T21:30:02+07:00",
+      "last_seen": "2025-08-02T02:44:30+07:00",
+      "span_days": 4,
+      "mean_coordinate": [
+        32.86232518963516,
+        -6.575994472950697
+      ],
+      "mean_geohash": "evg6fq7sbjrj",
+      "std_geohash_m": 52.516988033488985,
+      "mean_time_diff_seconds": 1190.4844720496894
+    },
+    "level_1_primary": {
+      "pings": 162,
+      "unique_days": 3,
+      "active_day_ratio": 0.1,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 2,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        153,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        9,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        1,
+        0,
+        8,
+        153,
+        0
+      ],
+      "monthly_hist": {
+        "2025-07": 1,
+        "2025-08": 161
+      },
+      "night_ratio": 0.9444444444444444,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.9444444444444444,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.05555555555555555,
+      "early_late_overlap_day_ratio": 0.6666666666666666,
+      "night_days_ratio": 0.3333333333333333,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.6666666666666666,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": 0.06751275045297592,
+      "monthly_stability": 0.5031055900621119,
+      "active_days_last_30d": 3
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 43,
+      "hourly_minutes": {
+        "21": {
+          "min": 2,
+          "max": 30
+        },
+        "2": {
+          "min": 29,
+          "max": 44
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 162,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fq5": {
+    "meta": {
+      "first_seen": "2025-08-02T02:40:22+07:00",
+      "last_seen": "2025-08-02T02:42:38+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.86087260581553,
+        -6.575932782143354
+      ],
+      "mean_geohash": "evg6fq5s3wth",
+      "std_geohash_m": 50.39050777243901,
+      "mean_time_diff_seconds": 1.0225563909774436
+    },
+    "level_1_primary": {
+      "pings": 134,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        134,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        134,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 134
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 1.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 0.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 2,
+      "hourly_minutes": {
+        "2": {
+          "min": 40,
+          "max": 42
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 134,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqe": {
+    "meta": {
+      "first_seen": "2025-07-30T21:30:18+07:00",
+      "last_seen": "2025-08-02T02:45:12+07:00",
+      "span_days": 4,
+      "mean_coordinate": [
+        32.86330536939204,
+        -6.575825493782759
+      ],
+      "mean_geohash": "evg6fqedshjh",
+      "std_geohash_m": 44.526633402724144,
+      "mean_time_diff_seconds": 851.9733333333334
+    },
+    "level_1_primary": {
+      "pings": 226,
+      "unique_days": 3,
+      "active_day_ratio": 0.1,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 2,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        73,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        153,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        1,
+        0,
+        152,
+        73,
+        0
+      ],
+      "monthly_hist": {
+        "2025-07": 1,
+        "2025-08": 225
+      },
+      "night_ratio": 0.3230088495575221,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.3230088495575221,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.6769911504424779,
+      "early_late_overlap_day_ratio": 0.6666666666666666,
+      "night_days_ratio": 0.3333333333333333,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.6666666666666666,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": 0.19795658256988194,
+      "monthly_stability": 0.5022222222222222,
+      "active_days_last_30d": 3
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 45,
+      "hourly_minutes": {
+        "21": {
+          "min": 2,
+          "max": 30
+        },
+        "2": {
+          "min": 28,
+          "max": 45
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 226,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqn": {
+    "meta": {
+      "first_seen": "2025-08-02T02:34:22+07:00",
+      "last_seen": "2025-08-02T02:35:43+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.86030179820955,
+        -6.572129745036364
+      ],
+      "mean_geohash": "evg6fqn34k0z",
+      "std_geohash_m": 27.919590218339106,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 82,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        82,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        82,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 82
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 1.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 0.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 1,
+      "hourly_minutes": {
+        "2": {
+          "min": 34,
+          "max": 35
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 82,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqh": {
+    "meta": {
+      "first_seen": "2025-08-02T02:32:06+07:00",
+      "last_seen": "2025-08-02T02:40:42+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.860400872305036,
+        -6.574774403125048
+      ],
+      "mean_geohash": "evg6fqh3swsy",
+      "std_geohash_m": 55.41105465645975,
+      "mean_time_diff_seconds": 6.88
+    },
+    "level_1_primary": {
+      "pings": 76,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        76,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        76,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 76
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 1.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 0.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 8,
+      "hourly_minutes": {
+        "2": {
+          "min": 32,
+          "max": 40
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 76,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fmy": {
+    "meta": {
+      "first_seen": "2025-08-02T02:35:44+07:00",
+      "last_seen": "2025-08-02T02:36:51+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.85979368723929,
+        -6.572243068367243
+      ],
+      "mean_geohash": "evg6fmynpts2",
+      "std_geohash_m": 24.37219591414592,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 68,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        68,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        68,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 68
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 1.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 0.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 1,
+      "hourly_minutes": {
+        "2": {
+          "min": 35,
+          "max": 36
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 68,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqm": {
+    "meta": {
+      "first_seen": "2025-08-01T22:25:29+07:00",
+      "last_seen": "2025-08-01T22:43:20+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.862473549321294,
+        -6.5737042017281055
+      ],
+      "mean_geohash": "evg6fqmjv94f",
+      "std_geohash_m": 16.305007933609062,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 1072,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1072,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        1072,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 1072
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 18,
+      "hourly_minutes": {
+        "22": {
+          "min": 25,
+          "max": 43
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 1072,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqz": {
+    "meta": {
+      "first_seen": "2025-08-01T21:12:01+07:00",
+      "last_seen": "2025-08-01T21:13:35+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.86473800428212,
+        -6.570968683809042
+      ],
+      "mean_geohash": "evg6fqz4vr4w",
+      "std_geohash_m": 34.772668028890834,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 95,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        95,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        95,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 95
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 1,
+      "hourly_minutes": {
+        "21": {
+          "min": 12,
+          "max": 13
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 95,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqu": {
+    "meta": {
+      "first_seen": "2025-08-01T21:06:20+07:00",
+      "last_seen": "2025-08-01T21:07:30+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.86527997814119,
+        -6.574992332607508
+      ],
+      "mean_geohash": "evg6fqunps4r",
+      "std_geohash_m": 22.867373146281114,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 71,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        71,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        71,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 71
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 1,
+      "hourly_minutes": {
+        "21": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 71,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqg": {
+    "meta": {
+      "first_seen": "2025-08-01T21:05:09+07:00",
+      "last_seen": "2025-08-01T21:06:19+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.864635242149234,
+        -6.575465742498636
+      ],
+      "mean_geohash": "evg6fqgfks13",
+      "std_geohash_m": 25.984653432049257,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 71,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        71,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        71,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 71
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 1,
+      "hourly_minutes": {
+        "21": {
+          "min": 5,
+          "max": 6
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 71,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqq": {
+    "meta": {
+      "first_seen": "2025-08-01T18:01:11+07:00",
+      "last_seen": "2025-08-01T22:25:28+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.86270556040108,
+        -6.572148185223341
+      ],
+      "mean_geohash": "evg6fqqr1u74",
+      "std_geohash_m": 30.932766944429787,
+      "mean_time_diff_seconds": 140.32743362831857
+    },
+    "level_1_primary": {
+      "pings": 114,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        39,
+        0,
+        0,
+        0,
+        75,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        114,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 114
+      },
+      "night_ratio": 0.6578947368421053,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.34210526315789475,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": 0.20214321574405786,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 2,
+      "hourly_minutes": {
+        "18": {
+          "min": 1,
+          "max": 2
+        },
+        "22": {
+          "min": 24,
+          "max": 25
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 114,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fmu": {
+    "meta": {
+      "first_seen": "2025-08-02T02:38:42+07:00",
+      "last_seen": "2025-08-02T02:39:16+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.859958140179515,
+        -6.57417694106698
+      ],
+      "mean_geohash": "evg6fmuz4s4m",
+      "std_geohash_m": 14.538913171870512,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 35,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        35,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        35,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 35
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 1.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 0.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 1,
+      "hourly_minutes": {
+        "2": {
+          "min": 38,
+          "max": 39
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 35,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqr": {
+    "meta": {
+      "first_seen": "2025-08-01T21:16:22+07:00",
+      "last_seen": "2025-08-01T21:16:36+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.86283497698605,
+        -6.570230405777693
+      ],
+      "mean_geohash": "evg6fqrxys3n",
+      "std_geohash_m": 1.4726404370860846,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 15,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 15
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 0,
+      "hourly_minutes": {
+        "21": {
+          "min": 16,
+          "max": 16
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 15,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6frh": {
+    "meta": {
+      "first_seen": "2025-08-01T21:07:31+07:00",
+      "last_seen": "2025-08-01T21:08:49+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.865841230377555,
+        -6.574437115341425
+      ],
+      "mean_geohash": "evg6frh9ksb7",
+      "std_geohash_m": 25.27304078976066,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 79,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        79,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        79,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 79
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 1,
+      "hourly_minutes": {
+        "21": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 79,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fmv": {
+    "meta": {
+      "first_seen": "2025-08-02T02:36:52+07:00",
+      "last_seen": "2025-08-02T02:38:41+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.85954357124865,
+        -6.573254596441984
+      ],
+      "mean_geohash": "evg6fmvs8nfh",
+      "std_geohash_m": 39.10672758310428,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 110,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        110,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        110,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 110
+      },
+      "night_ratio": 1.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 1.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 0.0,
+      "early_late_overlap_day_ratio": 0.0,
+      "night_days_ratio": 1.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 0.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 2,
+      "hourly_minutes": {
+        "2": {
+          "min": 36,
+          "max": 38
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 110,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqy": {
+    "meta": {
+      "first_seen": "2025-08-01T21:10:25+07:00",
+      "last_seen": "2025-08-01T21:12:00+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.865344351157546,
+        -6.571901086717844
+      ],
+      "mean_geohash": "evg6fqyqx85r",
+      "std_geohash_m": 39.175351977879814,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 96,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        96,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        96,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 96
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 2,
+      "hourly_minutes": {
+        "21": {
+          "min": 10,
+          "max": 12
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 96,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  },
+  "evg6fqv": {
+    "meta": {
+      "first_seen": "2025-08-01T21:10:15+07:00",
+      "last_seen": "2025-08-01T21:10:24+07:00",
+      "span_days": 1,
+      "mean_coordinate": [
+        32.865541158244014,
+        -6.57265143468976
+      ],
+      "mean_geohash": "evg6fqvzwhgv",
+      "std_geohash_m": 5.980963692944091,
+      "mean_time_diff_seconds": 1.0
+    },
+    "level_1_primary": {
+      "pings": 10,
+      "unique_days": 1,
+      "active_day_ratio": 0.016666666666666666,
+      "gap_bins": {
+        "0d": 0,
+        "1-3d": 0,
+        "4-7d": 0,
+        "8-30d": 0,
+        ">30d": 0
+      }
+    },
+    "level_2_secondary": {
+      "hourly_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      "weekday_hist": [
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      "monthly_hist": {
+        "2025-08": 10
+      },
+      "night_ratio": 0.0,
+      "weekday_day_ratio": 0.0,
+      "weekend_ratio": 0.0,
+      "midday_weekday_ratio": 0.0,
+      "evening_ratio": 1.0,
+      "early_late_overlap_day_ratio": 1.0,
+      "night_days_ratio": 0.0,
+      "weekday_work_days_ratio": 0.0,
+      "late_evening_days_ratio": 1.0,
+      "early_morning_days_ratio": 0.0,
+      "entropy_hour_norm": -3.1468595372166726e-13,
+      "monthly_stability": 1.0,
+      "active_days_last_30d": 1
+    },
+    "level_3_tertiary": {
+      "poi_available": false,
+      "poi_info": null
+    },
+    "level_4_duration": {
+      "est_duration": 0,
+      "hourly_minutes": {
+        "21": {
+          "min": 10,
+          "max": 10
+        }
+      }
+    },
+    "level_5_flux": {
+      "flux_counts": {
+        "B": 10,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    }
+  }
+}

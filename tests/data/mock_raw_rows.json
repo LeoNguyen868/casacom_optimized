@@ -1,0 +1,35 @@
+[
+  {
+    "maid": "m1",
+    "geohash": "gh1",
+    "timestamp": "2025-01-01T00:00:00+00:00",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "flux": "B"
+  },
+  {
+    "maid": "m1",
+    "geohash": "gh1",
+    "timestamp": "2025-01-01T01:00:00+00:00",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "flux": "C"
+  },
+  {
+    "maid": "m1",
+    "geohash": "gh1",
+    "timestamp": "2025-01-02T00:30:00+00:00",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "flux": "B"
+  },
+  {
+    "maid": "m1",
+    "geohash": "gh2",
+    "timestamp": "2025-01-03T12:00:00+00:00",
+    "latitude": 1.0,
+    "longitude": 1.0,
+    "flux": "B"
+  }
+]
+

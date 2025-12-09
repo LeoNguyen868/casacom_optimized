@@ -1,3 +1,5 @@
 clickhouse-docs
 clickhouse-data
 clickhouse-logs
+ClickHouse
+**/*.pyc
