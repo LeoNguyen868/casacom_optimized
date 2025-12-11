@@ -52,7 +52,7 @@ def run_new_pipeline_full(rows, maid):
 
 def main():
     import time
-    input_file = ROOT / "multi_maids_sample.csv"
+    input_file = ROOT / "dense_maids.csv"
     if not input_file.exists():
         print(f"Input file not found: {input_file}")
         return
@@ -63,7 +63,7 @@ def main():
     t1_load = time.time()
     
     if not data_by_maid:
-        print("No data found in multi_maids_sample.csv")
+        print("No data found in dense_maids.csv")
         return
 
     maid_count = len(data_by_maid)
@@ -75,12 +75,8 @@ def main():
     print(f"Starting Python Processing for {maid_count} MAIDs...")
     t0_proc = time.time()
     
-    # Process only first 100 if there are more, or all if less
-    # User asked for "100 maids", assuming file has them.
-    
     processed_count = 0
     for maid, rows in data_by_maid.items():
-        # print(f"Processing MAID: {maid} ({len(rows)} rows)") # Reduce noise
         new_store, new_derived = run_new_pipeline_full(rows, maid)
         multi_stored[maid] = new_store
         multi_aggregated[maid] = new_derived
@@ -96,13 +92,13 @@ def main():
     print(f"Total Time: {total_time:.4f}s")
     print(f"Average Time per MAID: {avg_time:.4f}s")
 
-    with open("stored_data_100.json", "w") as f:
+    with open("stored_data_dense.json", "w") as f:
         json.dump(multi_stored, f, indent=2, cls=CustomJSONEncoder)
-    print("Saved stored_data_100.json")
+    print("Saved stored_data_dense.json")
     
-    with open("aggregated_data_100.json", "w") as f:
+    with open("aggregated_data_dense.json", "w") as f:
         json.dump(multi_aggregated, f, indent=2, cls=CustomJSONEncoder)
-    print("Saved aggregated_data_100.json")
+    print("Saved aggregated_data_dense.json")
     
     print("\nArtifact generation complete.")
 

@@ -6,12 +6,13 @@ DROP TABLE IF EXISTS raw_maid_pings;
 
 -- 1. Raw Data Table (Unchanged)
 CREATE TABLE IF NOT EXISTS raw_maid_pings (
-    maid String,
+    maid String CODEC(ZSTD(1)),
     timestamp DateTime64(3, 'UTC') CODEC(Delta(4), ZSTD(1)),
     latitude Float64 CODEC(Gorilla, ZSTD(1)),
     longitude Float64 CODEC(Gorilla, ZSTD(1)),
-    flux LowCardinality(String),
-    geohash String MATERIALIZED geohashEncode(longitude, latitude, 7)
+    flux LowCardinality(String) CODEC(ZSTD(1)),
+    tz Float32 DEFAULT 7.0 CODEC(ZSTD(1)), -- Timezone offset in hours (e.g., 7.0 for UTC+7)
+    geohash String MATERIALIZED geohashEncode(longitude, latitude, 7) CODEC(ZSTD(1))
 ) 
 ENGINE = MergeTree()
 PARTITION BY toDate(timestamp)
@@ -34,7 +35,9 @@ CREATE TABLE IF NOT EXISTS maid_geohash_state (
     
     time_points_state AggregateFunction(groupArray, DateTime64(3)),
     unique_days_state AggregateFunction(groupBitmap, UInt32),
-    flux_counts_state AggregateFunction(sumMap, Map(String, UInt64))
+
+    flux_counts_state AggregateFunction(sumMap, Map(String, UInt64)),
+    tz_agg SimpleAggregateFunction(max, Float32) -- Aggregate timezone (assuming consitent per geohash)
 )
 ENGINE = AggregatingMergeTree()
 ORDER BY (maid, geohash);
@@ -53,7 +56,9 @@ SELECT
     sum(longitude * longitude) AS sum_lon_sq,
     groupArrayState(timestamp) AS time_points_state,
     groupBitmapState(toUInt32(toYYYYMMDD(timestamp))) AS unique_days_state,
-    sumMapState(map(flux, toUInt64(1))) AS flux_counts_state
+
+    sumMapState(map(flux, toUInt64(1))) AS flux_counts_state,
+    max(tz) AS tz_agg
 FROM raw_maid_pings
 GROUP BY maid, geohash;
 
@@ -72,7 +77,9 @@ WITH
             sum(sum_lat_sq) AS total_lat_sq,
             sum(sum_lon_sq) AS total_lon_sq,
             groupArrayMerge(time_points_state) AS all_ts,
-            groupBitmapMerge(unique_days_state) AS unique_days
+
+            groupBitmapMerge(unique_days_state) AS unique_days,
+            max(tz_agg) AS tz_offset
         FROM maid_geohash_state
         GROUP BY maid, geohash
     ),
@@ -89,8 +96,9 @@ WITH
     gh_calc_2 AS (
         SELECT 
             *,
-            -- Adjust to Local Time (UTC+7 for Vietnam as per data)
-            arrayMap(t -> t + INTERVAL 7 HOUR, sorted_ts) AS local_ts,
+            *,
+            -- Adjust to Local Time using dynamic timezone offset
+            arrayMap(t -> addMinutes(t, tz_offset * 60), sorted_ts) AS local_ts,
             
             arrayDifference(sorted_ts) AS gaps, -- Gaps are time-deltas, independent of timezone shift
             

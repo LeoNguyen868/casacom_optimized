@@ -32,20 +32,21 @@ def verification_main():
     run_command_no_output("TRUNCATE TABLE IF EXISTS maid_geohash_state")
     
     # 2. Insert Data
-    logging.info("Importing CSV (multi_maids_sample.csv) ...")
+    logging.info("Importing CSV (dense_maids.csv) ...")
     
     t0_ingest = time.time()
     
     try:
-        df = pd.read_csv('multi_maids_sample.csv')
+        df = pd.read_csv('dense_maids.csv')
     except FileNotFoundError:
-        logging.error("multi_maids_sample.csv not found!")
+        logging.error("dense_maids.csv not found!")
         return
 
     if 'geohash' in df.columns:
         df = df.drop(columns=['geohash'])
         
     df['timestamp'] = pd.to_datetime(df['timestamp']).dt.tz_convert('UTC').dt.strftime('%Y-%m-%d %H:%M:%S.%f')
+    df['tz'] = 7.0
     
     csv_buffer = io.BytesIO()
     df.to_csv(csv_buffer, index=False)
@@ -54,7 +55,7 @@ def verification_main():
     cmd_insert = [
         'docker', 'exec', '-i', 'clickhouse-server',
         'clickhouse-client',
-        '--query', 'INSERT INTO raw_maid_pings (maid,timestamp,latitude,longitude,flux) FORMAT CSVWithNames'
+        '--query', 'INSERT INTO raw_maid_pings (maid,timestamp,latitude,longitude,flux,tz) FORMAT CSVWithNames'
     ]
     
     proc = subprocess.Popen(cmd_insert, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -69,7 +70,7 @@ def verification_main():
     logging.info(f"Insert Successful. Total Ingest Time: {total_ingest_time:.4f}s")
 
     # 3. Load Expected JSONs
-    with open('aggregated_data_100.json', 'r') as f:
+    with open('aggregated_data_dense.json', 'r') as f:
         multi_agg_json = json.load(f)
     logging.info(f"Loaded expectations for {len(multi_agg_json)} MAIDs.")
 

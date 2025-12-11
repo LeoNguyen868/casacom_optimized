@@ -10,3 +10,4 @@ gzip-reader
 pycountry
 reverse_geocoder
 psycopg2-binary
+tzfpy

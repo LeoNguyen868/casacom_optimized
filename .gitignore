@@ -3,3 +3,4 @@ clickhouse-data
 clickhouse-logs
 ClickHouse
 **/*.pyc
+*.csv

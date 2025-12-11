@@ -52,63 +52,22 @@ print("Cleaning tables...")
 client.command("TRUNCATE TABLE IF EXISTS raw_maid_pings")
 
 print("Preparing dataframe before import...")
-# if 'geohash' in data.columns:
-#     data = data.drop(columns=['geohash'])
-# Parse timestamps with timezone info and convert to UTC (naive)
-data['timestamp'] = pd.to_datetime(data['timestamp'], utc=True)\
-    .dt.tz_convert('UTC')\
-    .dt.tz_localize(None)
 
-# Add timezone offset (default to UTC+7 for now, can be dynamic later)
-data['tz'] = 7.0
+data['tz'] = 7.0 # Add default timezone offset
 
-print("Importing data from dataframe in batches...")
-batch_size=10000
-batch_ms_per_maid=[]
+start_time = time.perf_counter()
+batch_size = 100000
+with tqdm(total=len(data), unit="rows", desc="Inserting data") as pbar:
+    for i in range(0, len(data), batch_size):
+        batch_df = data.iloc[i:i + batch_size]
+        client.insert_df('raw_maid_pings', batch_df)
+        pbar.update(len(batch_df))
+end_time = time.perf_counter()
 
-# Sort data by maid for efficient sliding window
-data_sorted = data.sort_values('maid').reset_index(drop=True)
+insert_elapsed_ms = (end_time - start_time) * 1000
+per_maid_insert_ms = insert_elapsed_ms / total_maids if total_maids else 0
 
-# Get maid boundaries for sliding window
-maid_changes = data_sorted['maid'].ne(data_sorted['maid'].shift()).cumsum()
-maid_boundaries = data_sorted.groupby(maid_changes).apply(lambda x: (x.index[0], x.index[-1] + 1)).tolist()
-
-batch_idx = 0
-i = 0
-with tqdm(total=total_maids, desc="Importing batches") as pbar:
-    while i < len(maid_boundaries):
-        batch_idx += 1
-        # Collect batch_size maids using sliding window
-        batch_end = min(i + batch_size, len(maid_boundaries))
-        start_row = maid_boundaries[i][0]
-        end_row = maid_boundaries[batch_end - 1][1]
-        
-        batch_df = data_sorted.iloc[start_row:end_row]
-        num_maids = batch_end - i
-        
-        if batch_df.empty:
-            tqdm.write(f"Batch {batch_idx} skipped (no rows).")
-            i = batch_end
-            pbar.update(num_maids)
-            continue
-            
-        start_time = time.perf_counter()
-        try:
-            client.insert_df('raw_maid_pings', batch_df)
-        except Exception as e:
-            tqdm.write(f"Batch {batch_idx} insert failed: {str(e)}")
-            i = batch_end
-            pbar.update(num_maids)
-            continue
-            
-        elapsed_ms = (time.perf_counter() - start_time) * 1000
-        ms_per_maid = elapsed_ms / num_maids
-        batch_ms_per_maid.append(ms_per_maid)
-        tqdm.write(f"Batch {batch_idx}: {num_maids} maids, {len(batch_df)} rows, {ms_per_maid:.2f} ms per maid")
-        
-        i = batch_end
-        pbar.update(num_maids)
-
+print(f"Insert time: {insert_elapsed_ms:.2f} ms ({per_maid_insert_ms:.4f} ms per maid)")
 client.command("OPTIMIZE TABLE raw_maid_pings FINAL")
 
 print("Querying view_aggregated_data for timing...")
